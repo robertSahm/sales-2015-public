@@ -40,32 +40,16 @@ var paths = {
 
 gulp.task('scripts', function() {
   return gulp.src([
-	// Add your JS files here, they will be combined in this order 
-	'src/js/vendor/navbar.js',
-	'src/js/vendor/jquery.fitvids.js',
-	'src/js/rss-post-getter.js',
-	'src/js/app.js'
+		// combined in order: 
+		'src/js/app.js',
+		'src/js/call-to-action.js'
 	])
 	.pipe(concat('scripts.js'))
-	.pipe(gulp.dest('app/assets/js'))
+	// .pipe(gulp.dest('app/assets/js'))
 	.pipe(rename({suffix: '.min'}))
 	.pipe(uglify())
 	.pipe(gulp.dest('app/assets/js'));
 });
-
-// gulp.task('scripts',function(){
-//   gulp.src('src/js/*.js')
-//     .pipe(jshint('.jshintrc'))
-//     .pipe(jshint.reporter('default'))
-//     .pipe(header(banner, { package : package }))
-//     .pipe(gulp.dest('app/assets/js'))
-//     .pipe(uglify())
-//     .pipe(header(banner, { package : package }))
-//     .pipe(rename({ suffix: '.min' }))
-//     .pipe(gulp.dest('app/assets/js'))
-//     .pipe(browserSync.reload({stream:true, once: true}));
-// });
-
 
 /* Sass task */
 gulp.task('sass', function () {   
@@ -80,27 +64,12 @@ gulp.task('sass', function () {
 		browsers: ['IE 8', 'IE 9', 'last 5 versions', 'Firefox 14', 'Opera 11.1']
    }))
    .pipe(sourcemaps.write())
-	.pipe(gulp.dest('assets/css'))
+	.pipe(gulp.dest('app/assets/css'))
 	.pipe(rename({suffix: '.min'}))
 	.pipe(minifycss())
 	.pipe(gulp.dest('app/assets/css'))
-	/* Reload the browser CSS after every change */
 	.pipe(reload({stream:true}));
 });
-
-// // Reload task 
-// gulp.task('bs-reload', function () {
-// 	browserSync.reload({stream: true});
-// });
-
-// // Prepare Browser-sync for localhost 
-// gulp.task('browser-sync', function() {
-// 	browserSync.init([
-// 		'app/assets/css/*.css', 
-// 		'app/assets/js/*.js',
-// 		'app/*.html'
-// 	]);
-// });
 
 gulp.task('browser-sync', function() {
     browserSync.init(null, {
@@ -109,21 +78,20 @@ gulp.task('browser-sync', function() {
         }
     });
 });
+
 gulp.task('bs-reload', function () {
     browserSync.reload();
 });
 
-/* Watch scss, js and html files, doing different things with each. */
 gulp.task('default', ['sass', 'browser-sync'], function () {
-
 	/* Watch scss, run the sass task on change. */
 	gulp.watch(['src/scss/*.scss', 'src/scss/**/*.scss'], ['sass'])
 
-	/* Watch app.js file, run the scripts task on change. */
+	/* Watch all src/js/*.js files, run the scripts task on change. */
 	gulp.watch(['src/js/*.js'], ['scripts'])
 
 	/* Watch .html files, run the bs-reload task on change. */
-	gulp.watch(['*.hbs'], ['bs-reload']);
+	gulp.watch(['app/*.html'], ['bs-reload']);
 });
 
 
