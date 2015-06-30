@@ -1,0 +1,293 @@
+
+
+.header {
+	position: relative;
+	display: block;
+	top: 0;
+	left: 0;
+	width: 100%;
+	// background-image: url('/assets/img/bg_6.jpg');
+	background-color: $primary-color;
+	background-size: cover;
+	padding: 14% 0 18% 0;
+	text-align: center;
+	box-shadow: inset 0 -45px 4px -45px rgba(255, 255, 255, .7);
+
+	.header-text-big {
+		color: $white;
+	}
+
+	.header-text-small {
+	color: $white;	
+	}
+
+}
+
+.header-macbook-wrapper {
+	position: absolute;
+	margin-top: 3%;
+	width: 100%;
+
+	@media (#{$bp-smaller-than-tablet}) {
+		display: none;
+	}
+
+	img.macbook {
+		padding: 4% 9% 2% 9%;
+	}
+
+	img.home-gif {
+		position: relative;
+		padding: 0 19.05%;
+		margin: -47.7% 0;
+		left: 0;
+	}
+
+	p {
+		display: none;
+		margin: 0% 10%;
+		font-size: 18px;
+	}
+}
+
+.header-macbook-mobile {
+	display: none;
+	position: absolute;
+	padding: 2% 10%;
+
+	@media (#{$bp-smaller-than-tablet}) {
+		display: block;
+	}
+}
+
+.value-row {
+	margin-top: 19%;
+
+	@media (#{$bp-smaller-than-tablet}) {
+		margin-top: 45%;
+	}
+
+	h2 {
+
+	}
+}
+
+.five-grid {
+	width: 100%;
+	margin-top: 3%;
+	position: relative;
+	z-index: 1;
+
+
+	@media (#{$bp-larger-than-tablet}) {
+		padding: 0 5%;
+	}
+
+	@media (#{$bp-smaller-than-tablet}) {
+
+	}
+
+	.five-grid-item {
+		display: inline-block;
+		float: left;
+		width: 20%;
+		margin: 0;
+
+		@media (#{$bp-smaller-than-tablet}) {
+			display: block;
+			float: none;
+			width: 40%;
+			padding: 0;
+			margin: 0 auto;
+		}
+
+		img {
+			display: block;
+			margin: 0 auto 10px auto;
+			width: auto;
+			height: 80px;
+
+			@media (#{$bp-smaller-than-tablet}) {
+				padding-top: 0;
+			}
+		}
+
+		p {
+			text-align: center;
+			padding: 0 5%;
+		}
+	}
+}
+
+// Use case button row
+.button-center-row {
+	position: relative;
+	z-index: 0;
+	margin-top: 15px;
+
+	button {
+		position: relative;
+	}
+
+	img {
+		position: absolute;
+		margin: -140px auto 0 -150px;
+		width: 550px;
+		z-index: -1;
+		opacity: .7
+	}
+}
+
+// Quotes row
+.quotes-row {
+	margin-top: 7%;
+	padding: 0 4%;
+	position: relative;
+	z-index: 1;
+	top: 0;
+	left: 0;
+
+	.one-half {
+		@media (#{$bp-smaller-than-tablet}) {
+			width: 80%;
+			margin-left: 10%;
+		}
+	}
+
+	.quote-attribution {
+		text-align: right;
+		font-size: 17px;
+	}
+}
+
+.awards-row {
+	margin-top: 3%;
+	position: relative;
+	top: 0;
+	left: 0;
+
+	img {
+		display: block;
+		margin: 0 auto;
+		padding: 0 4%;
+		width: 100%;
+	}
+}
+
+.connect-row, .compute-row {
+	margin: 8% 0;
+	padding-bottom: 4%;
+	background-color: #01A9F4;
+	position: relative;
+	text-align: center;
+
+	.one-half {
+		@media (#{$bp-smaller-than-tablet}) {
+			width: 80%;
+			margin-left: 10%;
+		}
+	}
+	
+	h1 {
+		position: relative;
+		padding: 5% 4% 3%;
+		color: $white;
+
+		span {
+			color: $white;
+			font-size: 130%;
+		}
+	}
+
+	.left {
+		text-align: right;
+		color: $white;
+
+		p {
+			color: $white;
+		}
+	}
+
+	.right {
+		color: $white;
+		text-align: left;
+
+		p {
+			color: $white;
+		}
+	}
+
+	.button-center-row {
+		padding-top: 2%;
+	}
+}
+
+.side-macbooks {
+
+	img {
+		position: absolute;
+	}
+
+	h5 {
+		position: relative;
+		padding: 5% 25%;
+		text-align: center;
+	}
+}
+
+.media-news-row {
+
+	.featured {
+		border-right: 1px solid rgba(1,169,244,1);
+
+		h2 {
+			text-align: center;
+		}
+
+		.media-item {
+			padding: 9%;
+
+			.video-container {
+			    position: relative;
+			    padding-bottom: 56.25%;
+			    padding-top: 30px; height: 0; overflow: hidden;
+			}
+			 
+			.video-container iframe,
+			.video-container object,
+			.video-container embed {
+			    position: absolute;
+			    top: 0;
+			    left: 0;
+			    width: 100%;
+			    height: 100%;
+			}
+
+			p.description {
+				padding-top: 3%;
+			}
+		}
+	}
+
+	.news {
+		h2 {text-align: center;}
+		border-left: 1px solid rgba(1,169,244,1);
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

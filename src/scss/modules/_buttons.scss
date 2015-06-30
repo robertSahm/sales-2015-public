@@ -1,0 +1,176 @@
+// Buttons
+//––––––––––––––––––––––––––––––––––––––––––––––––––
+
+.button,
+button {
+  display: inline-block;
+  line-height: 38px;
+  margin-bottom: 25px;
+  padding: 0 60px;
+  color: $secondary-color;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 38px;
+  letter-spacing: .07rem;
+  text-decoration: none;
+  white-space: nowrap;
+  background-color: transparent;
+  border-radius: $global-radius;
+  border: 0;
+  cursor: pointer;
+  box-sizing: border-box;
+  box-shadow: 0 5px 8px -5px #888;
+  transition: all .1s ease;
+}
+
+.button-cta-nav {
+  background-color: transparent;
+  border: 2px solid $white;
+  color: $white;
+  margin-top: -9px;
+  margin-left: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  transition: all .2s ease;
+
+  &:hover, &:active, &:focus {
+    color: $primary-color;
+    background-color: $white;
+    transition: all .2s ease;
+    border-color: $white !important;
+    box-shadow: none;
+  }
+}
+
+.button-awesome {
+  background-color: $primary-color;
+  color: $white;
+  border: 2px solid $primary-color;
+
+  &:hover {
+    box-shadow: none;
+    border: 2px solid $primary-color;
+    background-color: $white;
+    color: $primary-color;
+  }
+}
+
+.button-awesome-inverse {
+  box-shadow: none;
+  border: 2px solid $primary-color;
+  background-color: $white;
+  color: $primary-color;
+
+  &:hover {
+    background-color: $primary-color;
+    color: $white;
+    border: 2px solid $white;
+  }
+}
+
+.button-center-row {
+  text-align: center;
+  padding: 10px 0;
+
+  button, input {
+    margin: inherit auto;
+  }
+}
+
+input {
+  &[type="submit"],
+  &[type="reset"],
+  &[type="button"] {
+    display: inline-block;
+    height: 38px;
+    padding: 0 30px;
+    color: $secondary-color;
+    text-align: center;
+    font-size: 15px;
+    line-height: 33px;
+    text-decoration: none;
+    letter-spacing: 0;
+    font-weight: 400;
+    white-space: nowrap;
+    border-radius: $global-radius;
+    cursor: pointer;
+    box-sizing: border-box;
+  }
+}
+
+.button:hover,
+button:hover {
+  outline: 0;
+}
+
+.button-sign-in {
+  position: relative;
+  border: 2px solid $white;
+  padding: 0 25px;
+}
+
+input {
+  &[type="submit"]:hover,
+  &[type="reset"]:hover,
+  &[type="button"]:hover {
+    outline: 0;
+  }
+}
+
+.button:focus,
+button:focus {
+  color: $dark-grey;
+  outline: 0;
+}
+
+input {
+  &[type="submit"]:focus,
+  &[type="reset"]:focus,
+  &[type="button"]:focus {
+    color: $dark-grey;
+
+    outline: 0;
+  }
+}
+
+.button.button-primary,
+button.button-primary {
+  color: $white;
+  background-color: $primary-color;
+  border-color: $primary-color;
+}
+
+input {
+  &[type="submit"].button-primary,
+  &[type="reset"].button-primary,
+  &[type="button"].button-primary {
+    color: $white;
+    background-color: $primary-color;
+    border-color: $primary-color;
+  }
+}
+
+.button.button-primary:hover,
+button.button-primary:hover {
+  color: $white;
+  background-color: $link-color;
+  border-color: $link-color;
+}
+
+input {
+  &[type="submit"].button-primary:hover,
+  &[type="reset"].button-primary:hover,
+  &[type="button"].button-primary:hover {
+    color: $white;
+    background-color: $link-color;
+    border-color: $link-color;
+  }
+}
+
+.button.button-primary:focus,
+button.button-primary:focus {
+  color: $white;
+  background-color: $link-color;
+  border-color: $link-color;
+}

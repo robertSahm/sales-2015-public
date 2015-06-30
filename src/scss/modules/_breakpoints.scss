@@ -1,0 +1,36 @@
+
+// Media Queries
+//––––––––––––––––––––––––––––––––––––––––––––––––––
+
+// Larger than mobile
+@media (#{$bp-larger-than-mobile}) {}
+
+// Larger than phablet (also point when grid becomes active)
+@media (#{$bp-larger-than-phablet}) {}
+
+// Larger than tablet
+@media (#{$bp-larger-than-tablet}) {}
+
+// Larger than desktop
+@media (#{$bp-larger-than-desktop}) {}
+
+// Larger than Desktop HD
+@media (#{$bp-larger-than-desktophd}) {}
+
+//----------------------------------------------------
+
+@media (#{$bp-smaller-than-mobile}) {}
+
+@media (#{$bp-smaller-than-phablet}) {}
+
+@media (#{$bp-smaller-than-tablet}) {}
+
+@media (#{$bp-smaller-than-desktop}) {}
+
+@media (#{$bp-smaller-than-desktophd}) {}
+
+//----------------------------------------------------
+
+@media print, (-o-min-device-pixel-ratio: 5/4), (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi) {
+
+}

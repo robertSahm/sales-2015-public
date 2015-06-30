@@ -1,0 +1,107 @@
+
+.header-macbook-wrapper-single {
+	position: absolute;
+	margin-top: 0%;
+	width: 100%;
+	padding: 0 15%;
+
+	@media (#{$bp-smaller-than-tablet}) {
+		display: none;
+	}
+
+	img.macbook {
+		padding: 10% 9% 2% 9%;
+	}
+
+	img.home-gif {
+		position: relative;
+		padding: 0 19.05%;
+		margin: -47.7% 0;
+		left: 0;
+	}
+
+	p {
+		display: none;
+		margin: 0% 10%;
+		font-size: 18px;
+		font-weight: 200;
+	}
+}
+
+.five-grid-connect {
+	margin-bottom: 4%;
+}
+
+.value-row-connect {
+	margin-top: 29%;
+
+	@media (#{$bp-smaller-than-tablet}) {
+		margin-top: 45%;
+	}
+
+	h2 {
+
+	}
+}
+
+.connect-works {
+	text-align: center;
+	margin-top: 24%;
+	padding: 5% 20%;
+	// color: $white;
+	background-color: $white;
+	position: relative;
+
+	h5 {
+		color: $primary-color;
+	}
+
+	p {
+		color: $secondary-color;
+	}
+}
+
+.connect-info-points {
+	color: $white;
+	background-color: $primary-color;
+	padding: 5% 4%;
+	text-align: center;
+	
+	h2 {
+		margin-bottom: 60px;
+	}
+
+	h5 {
+		color: #444;
+		font-weight: 400;
+	}
+
+	p {
+		color: #fff;
+		font-size: 17px;
+	}
+
+	.four {
+
+	}
+}
+
+.connect-facts {
+	padding: 5% 20%;
+	text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

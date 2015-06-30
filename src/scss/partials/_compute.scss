@@ -1,0 +1,50 @@
+
+
+.header-compute {
+	// background-color: $secondary-color;
+}
+
+.value-row-compute {
+	margin-top: 25%;
+
+	@media (#{$bp-smaller-than-tablet}) {
+		margin-top: 45%;
+	}
+
+	h2 {
+
+	}
+}
+
+.compute-value {
+	text-align: center;
+	padding: 29% 20% 5%;
+
+}
+
+.compute-info-points {
+	color: $white;
+	background-color: $secondary-color;
+	padding: 5% 20%;
+	text-align: center;
+}
+
+.compute-facts {
+	padding: 5% 20%;
+	text-align: center;
+	background-color: $secondary-color;
+	color: $white;
+
+	h2 {
+		padding: 3%;
+	}
+}
+
+.compute-quote {
+	padding: 6% 20% 0;
+
+	.quote-attribution {
+		text-align: right;
+		font-size: 17px;
+	}
+}

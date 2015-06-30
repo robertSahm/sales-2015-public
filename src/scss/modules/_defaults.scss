@@ -1,0 +1,27 @@
+* {
+  box-sizing: border-box;
+  font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+html {
+  font-size: 62.5%;
+  background: #fff;
+}
+body {
+  transition: all .4s .3s ease-in;
+
+  font-size: 1.5em; // currently ems cause chrome bug misinterpreting rems on body element
+  line-height: 1.6;
+  font-weight: 400;
+  font-family: $font-family;
+  color: $font-color;
+  margin: 0;
+  padding: 0;
+}
+
+body,html{
+	min-height: 100vh;
+	// overflow: hidden;
+}
+
+
