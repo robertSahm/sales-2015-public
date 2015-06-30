@@ -14,6 +14,14 @@ $bp-smaller-than-tablet    : "max-width: 750px" !default;
 $bp-smaller-than-desktop   : "max-width: 1000px" !default;
 $bp-smaller-than-desktophd : "max-width: 1200px" !default;
 
+//Grid Variables
+$container-width: 1260px !default;
+$container-width-larger-than-mobile: 85% !default;
+$container-width-larger-than-phablet: 80% !default;
+$total-columns: 12 !default;
+$column-width: 100 / $total-columns !default; // calculates individual column width based off of # of columns
+$column-margin: 4% !default; // space between columns
+
 // Colors
 $primary-color: rgba(1,169,244,1) !default;
 $secondary-color: darken(rgba(0,86,155,1), 20%) !default;
@@ -29,6 +37,8 @@ $white: #fff;
 $text-dark: $dark-grey;
 $text-light: $white;
 
+// Cards
+
 .site-wrapper {
 	background-color: $white;
 }
@@ -36,16 +46,9 @@ $text-light: $white;
 // Typography
 $font-family: "Source Sans Pro", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif !default;
 
-//Grid Variables
-$container-width: 960px !default;
-$container-width-larger-than-mobile: 85% !default;
-$container-width-larger-than-phablet: 80% !default;
-$total-columns: 12 !default;
-$column-width: 100 / $total-columns !default; // calculates individual column width based off of # of columns
-$column-margin: 4% !default; // space between columns
 
 // Misc
-$global-radius: 4px !default;
+$global-radius: 3px !default;
 
 // Functions
 @function grid-column-width($n) {

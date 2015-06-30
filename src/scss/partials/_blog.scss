@@ -1,0 +1,52 @@
+.header-blog {
+	padding: 13% 4% 6% !important;
+
+	@include media($desktop-up) {
+		padding: 200px;
+	}
+}
+
+.blog-main {
+	@include outer-container(60%);
+	padding: 4% 4%;
+
+	@include media($laptop-down) {
+		@include outer-container(80%);
+	}
+
+	@include media($phone-large-down) {
+		@include outer-container(100%);
+	}
+
+}
+
+.post-excerpt {
+	@include row;
+	padding: 0;
+
+	&:first-child {
+		margin-top: 8%;
+	}
+
+	.post-title {
+		margin: 0;
+	}
+
+	.excerpt {
+		@include row;
+		padding-top: 2%;
+		margin-bottom: 0;
+	}
+
+	.tags {
+		display: none;
+	}
+
+	.blog-link {
+		@include row;
+
+		a {
+			margin-top: 5px;
+		}
+	}
+}

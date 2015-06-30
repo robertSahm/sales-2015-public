@@ -1,0 +1,19 @@
+$desktop: 1200px;
+$laptop: 960px;
+$tablet: 768px;
+$phone-large: 414px; // iPhone 6+
+$phone-med: 375px; // iPhone 6
+$phone-small: 320px; // iPhone 5
+
+$laptop-down: new-breakpoint(max-width $laptop);
+$tablet-down: new-breakpoint(max-width $tablet);
+$phone-large-down: new-breakpoint(max-width $phone-large);
+$phone-med-down: new-breakpoint(max-width $phone-med);
+$phone-small-down: new-breakpoint(max-width $phone-small);
+
+$desktop-up: new-breakpoint(min-width $desktop + 1);
+$laptop-up: new-breakpoint(min-width $laptop + 1);
+$tablet-up: new-breakpoint(min-width $tablet + 1);
+$phone-large-up: new-breakpoint(min-width $phone-large + 1);
+$phone-med-up: new-breakpoint(min-width $phone-med + 1);
+$phone-small-up: new-breakpoint(min-width $phone-small + 1);

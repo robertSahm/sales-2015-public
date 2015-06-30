@@ -1,50 +1,164 @@
-
-
 .header-compute {
-	// background-color: $secondary-color;
+	@include outer-container(100%);
+
+	h5 {
+		margin-bottom: 0;
+	}
 }
 
-.value-row-compute {
-	margin-top: 25%;
-
-	@media (#{$bp-smaller-than-tablet}) {
-		margin-top: 45%;
-	}
-
-	h2 {
-
-	}
+.main-compute {
+	@include outer-container(100%);
 }
 
 .compute-value {
+	@include outer-container(100%);
+	padding: 30% 0 0;
 	text-align: center;
-	padding: 29% 20% 5%;
 
+	.compute-value-header-copy {
+		padding-bottom: 2%;
+	}
+
+	.compute-value-copy-block {
+		@include span-columns(6, table);
+		float: left;
+		padding: 4% 2% 0;
+		height: 270px; 
+		color: $white;
+
+		@include media($tablet-down) {
+			@include span-columns(12, table);
+			height: 200px;
+			padding-top: 7%;
+		}
+
+		h5 {
+			margin: 0;
+			padding-bottom: 4%;
+		}
+
+		p {
+			padding-bottom: 0;
+		}
+
+		&:nth-child(2) {
+			background-color: darken($primary-color, 30%);
+		}
+		&:nth-child(3) {
+			background-color: darken($primary-color, 20%);
+		}
+		&:nth-child(4) {
+			background-color: darken($primary-color, 10%);
+		}
+		&:nth-child(5) {
+			background-color: $primary-color;
+		}
+	}
 }
 
-.compute-info-points {
-	color: $white;
-	background-color: $secondary-color;
-	padding: 5% 20%;
-	text-align: center;
-}
+.compute-facts-wrapper {
+	@include outer-container(100%);
+	background-color: $white;
+	color: $secondary-color;
+	padding: 4% 4%;
+	margin-bottom: 1%;
 
-.compute-facts {
-	padding: 5% 20%;
-	text-align: center;
-	background-color: $secondary-color;
-	color: $white;
+	@include media($tablet-down) {
+		padding: 10% 0;
+
+	}
 
 	h2 {
-		padding: 3%;
+		text-align: left;
+	}
+
+	.compute-facts-copy-wrapper {
+		@include span-columns(6);
+		
+		.compute-facts-copy {
+
+			p {
+				margin-bottom: 1.0rem;
+
+				@include media($tablet-down) {
+					@include span-columns(10);
+					@include shift(1);
+					@include omega(12);
+				}
+			}
+		}
+	}
+
+	img {
+		@include span-columns(6);
+		position: relative;
+		padding-right: 4%;
+		margin-top: 3%;
+		max-width: 620px;
+		// margin-bottom: -50%;
+		
+	}
+}
+
+
+.compute-compare-row {
+	@include outer-container;
+	margin-bottom: 2%;
+	color: $secondary-color;
+
+	.left, .right {
+		@include span-columns(6, block-collapse);
+		padding: 3% 2%;
+
+		p {
+			border-bottom: 1px solid $primary-color;
+			padding-bottom: 30px;
+			line-height: 0em;
+			clear: both;
+		}
+	}
+
+	.left {
+		text-align: right;
+
+		p { float: right; }
+	}
+
+	.right {
+
+		p { float: left; }
 	}
 }
 
 .compute-quote {
-	padding: 6% 20% 0;
+	@include outer-container(100%);
+	background-color: $primary-color;
+	padding: 5% 4% 4%;
 
-	.quote-attribution {
-		text-align: right;
-		font-size: 17px;
+	@include media($tablet-down) {
+		padding-top: 30px;
+	}
+
+	.compute-quote-wrapper {
+		@include span-columns(8);
+		@include shift(2);
+		color: $white;
+		
+		.quote-attribution {
+			text-align: right;
+			font-size: 17px;
+			padding-right: 4%;
+			font-weight: 400;
+		}
 	}
 }
+
+
+
+
+
+
+
+
+
+

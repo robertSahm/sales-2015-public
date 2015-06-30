@@ -5,9 +5,9 @@
 	width: 100%;
 	padding: 0 15%;
 
-	@media (#{$bp-smaller-than-tablet}) {
-		display: none;
-	}
+	// @media (#{$bp-smaller-than-tablet}) {
+	// 	display: none;
+	// }
 
 	img.macbook {
 		padding: 10% 9% 2% 9%;
@@ -28,32 +28,36 @@
 	}
 }
 
-.five-grid-connect {
-	margin-bottom: 4%;
-}
-
-.value-row-connect {
-	margin-top: 29%;
-
-	@media (#{$bp-smaller-than-tablet}) {
-		margin-top: 45%;
-	}
-
-	h2 {
-
+.header-macbook-mobile {
+	.home-gif-mobile {
+		position: relative;
+		margin: 0 auto;
+		width: 75%;
+		margin-left: 12.4%;
+		margin-top: -55.5%;
 	}
 }
 
 .connect-works {
 	text-align: center;
-	margin-top: 24%;
-	padding: 5% 20%;
-	// color: $white;
+	margin: 26% auto 0;
+	padding: 4% 20%;
 	background-color: $white;
-	position: relative;
+	@include outer-container(100%);
+
+	@include media($tablet-down) {
+		margin: 37% auto 0%;
+		padding: 3% 6%;
+		// padding: 0;
+	}
+
+	h2 {
+
+	}
 
 	h5 {
 		color: $primary-color;
+
 	}
 
 	p {
@@ -61,34 +65,383 @@
 	}
 }
 
-.connect-info-points {
-	color: $white;
+
+.connect-challenge-solution {
+	@include outer-container;
+	padding: 6% 4%;
 	background-color: $primary-color;
-	padding: 5% 4%;
-	text-align: center;
+	color: $white;
 	
-	h2 {
-		margin-bottom: 60px;
+	p {color: $white;}
+
+	.left {
+		@include span-columns(6);
+		text-align: right;
+
+		@include media(max-width $tablet) {
+			@include span-columns(12);
+			text-align: left;
+		}
 	}
 
-	h5 {
-		color: #444;
-		font-weight: 400;
+	.right {
+		@include span-columns(6);
+		@include omega();
+
+		@include media(max-width $tablet) {
+			@include span-columns(12);
+		}
+		
+		p, h4 {
+			font-weight: 400;
+		}
 	}
 
-	p {
-		color: #fff;
-		font-size: 17px;
-	}
-
-	.four {
-
+	.button-center-row {
+		@include span-columns(12);
+		margin: 0;
+		padding: 4%;
 	}
 }
 
-.connect-facts {
-	padding: 5% 20%;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.timeline-wrapper {
+	@include outer-container(100%);
+	padding: 4%;
+	position: relative;
+	display: block;
+	height: 720px;
+
+	@include media($tablet-down) {
+		display: none;
+	}	
+
+	h2 {
+		text-align: center;
+		padding: 2% 4%;
+		margin-bottom: 200px;
+	}
+
+	.step {
+		text-align: left;
+		line-height: 1em;
+		padding: 0.5% 0;
+		margin: 0 !important;
+		position: relative;
+
+		&:after {
+			content: "";
+			position: absolute;
+			width: 1px;
+			padding-left: 0%;
+			margin-left: 0;
+		}
+
+		h6 {
+			margin: 0;
+			color: $white;
+			font-size: 95%;
+			padding-left: 10px;
+		}
+
+		p {
+			position: relative;
+			margin: 0;
+			padding: 0;
+			line-height: 1.2em;
+			height: 0;
+			background-color: $white !important;
+
+			span.bold {
+				z-index: 100;				
+				background-color: $white;
+				position: relative;
+				z-index: 101;
+			}
+	
+			span.description {
+				display: block;
+				font-weight: 300 !important;
+				margin-top: 4px;
+				// padding-bottom: 5px !important;
+				font-size: 90%;
+				background-color: $white;
+				position: relative;
+				z-index: 101;
+			}
+		}
+	}
+
+	.step-1 { // 1
+		@include span-columns(3 of 50);
+		background-color: darken($primary-color, 40%);
+
+		p {
+			top: -180px;
+			width: 300%;
+		}
+
+		&:after {
+			border-left: 1px solid darken($primary-color, 40%);
+			height: 100px;
+			top: -100px;
+		}
+	}
+
+
+	.step-2 { // 10
+		@include span-columns(10 of 50);
+		background-color: darken($primary-color, 30%);
+
+		p {
+			top: 60px;
+		}
+
+		&:after {
+			border-right: 1px solid darken($primary-color, 30%);
+			height: 50px;
+		}
+	}
+
+	.step-3 { // 5
+		@include span-columns(5 of 50);
+		background-color: darken($primary-color, 20%);
+
+		p {
+			top: -180px;
+			width: 150%;
+		}
+
+		&:after {
+			border-right: 1px solid darken($primary-color, 20%);
+			height: 80px;
+			top: -80px;
+		}
+	}
+
+	.step-4 { // 5
+		@include span-columns(5 of 50);
+		background-color: darken($primary-color, 10%);
+
+		p {
+			top: 60px;
+			width: 200%;
+		}
+
+		&:after {
+			border-right: 1px solid darken($primary-color, 10%);
+			height: 50px;
+		}
+	}
+
+	.step-5 { // 20
+		@include span-columns(20 of 50);
+		background-color: $primary-color;
+
+		p {
+			top: -180px;
+		}
+
+		&:after {
+			border-right: 1px solid $primary-color;
+			height: 110px;
+			top: -110px;
+		}
+	}
+
+	.step-6 { // 1
+		@include span-columns(7 of 50);
+		background-color: lighten($primary-color, 20%);
+
+		p {
+			top: 60px;
+			width: 100%;
+		}
+
+		&:after {
+			border-right: 1px solid lighten($primary-color, 20%);
+			height: 50px;
+		}
+	}
+}
+
+
+
+.timeline-vertical-wrapper {
+	@include outer-container(100%);
+	position: relative;
+	top: 0;
+	left: 0;
+	padding: 4%;
+
+	@include media($tablet-up) {
+		display: none;
+	}	
+
+	.header-timeline {
+		text-align: center;
+		padding-bottom: 0%;
+	}
+
+	.label-days {
+		position: relative;
+		top: 0px;
+		margin: 0;
+		padding: 0;
+	}
+
+	ul {
+		list-style: none;
+		@include span-columns(8);
+		@include shift(2);
+		display: block;
+		float: left;
+
+		@include media(max-width 668px) {
+			@include shift(0);		
+			@include span-columns(12);
+		}
+
+		li.step {
+			margin: 0 0 0px 0;
+			padding: 0px 20px 0;
+
+			.step-length {
+				position: absolute;
+				margin-left: -55px;
+				color: $white;
+			}
+
+			p {
+				margin: 0;
+				padding: 0;
+				font-size: 135%;
+				line-height: 1.3em;
+				text-align: left;
+
+				span.description {
+					display: block;
+					font-weight: 300 !important;
+					margin: 0;
+					font-size: 75%;
+					line-height: 1.2em;
+				}
+			}
+		}
+	}
+
+	.step-1 { // 1
+		border-left: 40px solid darken($primary-color, 40%);
+		// border-bottom: 1px solid darken($primary-color, 40%);
+		height: 60px;
+	}
+
+	.step-2 { // 10 days
+		border-left: 40px solid darken($primary-color, 30%);
+		// border-bottom: 1px solid darken($primary-color, 30%);
+		height: 150px;
+	}
+
+	.step-3 { // 5 days
+		border-left: 40px solid darken($primary-color, 20%);
+		// border-bottom: 1px solid darken($primary-color, 20%);
+		height: 90px;
+	}
+
+	.step-4 { // 5 days
+		border-left: 40px solid darken($primary-color, 10%);
+		// border-bottom: 1px solid darken($primary-color, 10%);
+		height: 90px;
+	}
+
+	.step-5 { // 20 days
+		border-left: 40px solid $primary-color;
+		// border-bottom: 1px solid $primary-color;
+		height: 170px;
+	}
+
+	.step-6 { // ... days
+		border-left: 40px solid lighten($primary-color, 20%);
+		// border-bottom: 1px solid lighten($primary-color, 20%);
+		height: 80px;
+	}
+}
+
+.box-4-container {
+	padding: 4% 4%;
+	@include outer-container;
+	background-color: $secondary-color;
+	text-align: left;
+	color: $white;
+
+	.box-4 {
+		padding: 0 0 1%;
+		// @include span-columns(2 of 4);
+		// @include omega(3n);
+
+    	@include media(max-width 667px) {
+			margin-right: 0 !important;
+			padding: 2%;
+			// @include span-columns(4 of 4);
+    	}
+
+    	h5 {
+			color: $white;
+
+    	}
+
+    	p {
+    		color: $white;	
+    	}
+	}
+}
+
+.connect-value-row {
+	padding: 4%;
+	@include outer-container;
+	background-color: $primary-color;
+	color: $white;
 	text-align: center;
+
+	// .connect-value-left {
+	// 	@include span-columns(6);
+	// }
+
+	// .connect-value-right {
+	// 	@include span-columns(6);
+	// 	text-align: right;
+	// }
+}
+
+
+
+.bg-triangles {
+	@include outer-container;
+
+	img {
+		width: auto !important;
+		max-height: 500px;
+		position: relative;
+		top: 0;
+		right: 0;
+		float: right;
+	}
 }
 
 

@@ -34,3 +34,23 @@
 @media print, (-o-min-device-pixel-ratio: 5/4), (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi) {
 
 }
+
+// Only's
+// @desktop: ~"only screen and (min-width: 1180px) and (max-width: 9999px)";
+// @laptop: ~"only screen and (min-width: 960px) and (max-width: 1179px)";
+// @tablet:  ~"only screen and (min-width: 668px) and (max-width: 959px)";
+// @phone-large: ~"only screen and (min-width: 376px) and (max-width: 667px)";
+// @phone-med: ~"only screen and (min-width: 321px) and (max-width: 375px)";
+// @phone-small: ~"only screen and (min-width: 0px) and (max-width: 320px)";
+
+// and down's
+// @laptop-and-down: ~"only screen and (min-width: 0px) and (max-width: 1179px)";
+// @tablet-and-down:  ~"only screen and (min-width: 0px) and (max-width: 959px)";
+// @phone-large-and-down:  ~"only screen and (min-width: 0px) and (max-width: 667px)";
+// @phone-med-and-down:  ~"only screen and (min-width: 0px) and (max-width: 375px)";
+
+// and up's
+// @laptop-and-up: ~"only screen and (min-width: 1180px) and (max-width: 9999px)";
+// @tablet-and-up:  ~"only screen and (min-width: 960px) and (max-width: 9999px)";
+// @phone-large-and-up: ~"only screen and (min-width: 667px) and (max-width: 9999px)";
+// @phone-med-and-up: ~"only screen and (min-width: 375px) and (max-width: 9999px)";
