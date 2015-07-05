@@ -1,0 +1,27 @@
+.header-legal {
+	.header {
+		padding: 8% 4% 5%;
+	}
+}
+
+.main-legal {
+	@include outer-container(100%);
+
+	.wrapper-customer, .wrapper-vendor {
+		@include span-columns(6);
+		text-align: center;
+		padding: 4%;
+
+		a {
+			text-decoration: none;
+
+			&.active {
+				text-decoration: underline;
+			}
+		}
+	}
+}
+
+.legal-content {
+	@include outer-container(80%);
+}
