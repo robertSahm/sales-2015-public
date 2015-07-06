@@ -3,13 +3,15 @@
 	'use strict';
 
 	$(function() {
+		var modal = $('.nav-desktop');
+
 		$(window).scroll(function (e) {
     		var scroll = $(window).scrollTop();
 		   
 		   if (scroll > 0) {
-		   	$('.nav-desktop').addClass('scrolled')
+		   	modal.addClass('scrolled')
 		   } else {
-		   	$('.nav-desktop').removeClass('scrolled')
+		   	modal.removeClass('scrolled')
 		   };
 		});
 		
@@ -21,7 +23,17 @@
 
 		$('.button-cta-nav').click( function() {
 			$('.cta-form').show();
-			$('.nav-desktop').addClass('cover-all');
+			modal.addClass('cover-all');
+			setTimeout(function() {
+				modal.click(function(e) {
+					e.preventDefault();
+					if (/cover-all/.test(modal.attr('class'))) {
+						$('.cta-form').hide();
+						modal.removeClass('cover-all');
+						modal.off('click');
+					}
+				});
+			}, 1);
 		});
 	});
 
@@ -38,7 +50,7 @@
     		console.log(data);
 	  
 	      var request = $.ajax({
-	         url:  '',
+	         url:  'http://localhost:1437/api/salesRegistration',
 	         // url:  'http://10.20.3.1:8400/api/salesRegistration',
 	         type: 'POST',
 	         dataType: 'JSON',
