@@ -48,12 +48,11 @@
 	$(function() {
 
     	$('#cta-submit').click(function(e) {
+	 		
 	 		var data = {}
 
-			e.preventDefault(); //prevent form from submitting
+			e.preventDefault(); 
 
-
-	    	
 	    	$('#cta-form-post :input').each(function(i, e) { 
 	    		data[$(e).attr('id')] = $(e).val();
 	    	});
@@ -92,7 +91,7 @@
 
 		       	// Show no-response error
 					$(function() {
-				  		$('.respond-message-wrap').show().append(
+				  		$('.cta-respond-message-wrap').show().append(
 				  			"<p>Sorry, your information could not be submitted.<br />Please contact <a href='mailto:info@lucera.com?Subject=Website%20no%20response%20error' target='_top'>info@lucera.com</a> for assistance.</p>"
 				  		);
 					});
@@ -112,7 +111,7 @@
 			   	if (data.success) {
 					   // Show success response
 						$(function() {
-					  		$('.respond-message-wrap').show().append(
+					  		$('.cta-respond-message-wrap').show().append(
 					  			"<p>Thank you!</p>"
 					  		);
 						});
@@ -120,7 +119,7 @@
 					} else {
 					   console.log('error:', data.message);
 					   $(function() {
-				  		$('.respond-message-wrap').show().append(
+				  		$('.cta-respond-message-wrap').show().append(
 				  			"<p>Sorry, there was a error receiving your information on our end. Please contact <a href='mailto:info@lucera.com?Subject=Website%20signup%20error' target='_top'>info@lucera.com</a> for help.</p>"
 				  			);
 						});
@@ -128,7 +127,7 @@
 			   }).fail(function(xhr, status, err) {
 			   	// Show no-response error
 					$(function() {
-				  		$('.respond-message-wrap').show().append(
+				  		$('.cta-respond-message-wrap').show().append(
 				  			"<p>Sorry, there was a error submitting your information on our end. Please contact <a href='mailto:info@lucera.com?Subject=Website%20error' target='_top'>info@lucera.com</a> for help.</p>"
 				  		);
 					});

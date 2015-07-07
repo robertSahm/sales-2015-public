@@ -130,6 +130,7 @@ ul.nav-dropdown {
 
 	#cta-form-post {
 		margin: 0;
+		cursor: default;
 	}
 
 	.arrow-up {
@@ -142,17 +143,17 @@ ul.nav-dropdown {
 		border-right: 15px solid transparent;
 		border-bottom: 15px solid $white;
 	}
+}
 
-	.input-row {
-		@include row();
-		padding: 15px 15px 0;
-			
-		input {
-			@include span-columns(12 of 12);
+.input-row {
+	@include row();
+	padding: 15px 15px 0;
+		
+	input {
+		@include span-columns(12 of 12);
 
-			&.half-width-input {
-				@include span-columns(6 of 12);
-			}
+		&.half-width-input {
+			@include span-columns(6 of 12);
 		}
 	}
 
@@ -177,9 +178,9 @@ ul.nav-dropdown {
 	border: 1px solid red;
 }
 
-.respond-message-wrap {
+.cta-respond-message-wrap {
 	display: none;
-	padding: 25px 15px 0;
+	padding: 12px 15px 0;
 	@include row;
 	
 	p, a {
@@ -191,8 +192,6 @@ ul.nav-dropdown {
 			font-size: 13px;
 		}
 	}
-
-
 }
 
 
