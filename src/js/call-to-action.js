@@ -29,8 +29,7 @@
 						var el = $(e.target),
 							elForm = el.closest('.cta-form'),
 							inForm = elForm.length > 0;
-
-						if (!inForm && modalIsOpen) {
+						if (!inForm && modalIsOpen()) {
 							$('.cta-form').hide();
 							modal.removeClass('cover-all');
 							modal.off('click');

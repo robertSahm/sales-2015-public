@@ -160,6 +160,14 @@ ul.nav-dropdown {
 	.button-center-row {
 		@include row;
 	}
+
+	&.success {
+		background-color: green;
+	}
+
+	&.error {
+		background-color: red;
+	}
 }
 
 .cover-all {
