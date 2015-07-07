@@ -119,14 +119,18 @@ ul.nav-dropdown {
 // Call to action dropdown
 .cta-form {
 	z-index: 1001;
-	width: 300px;
+	min-width: 300px;
 	display: none;
 	position: relative;
 	top: 30px;
 	right: 110%;
 	background-color: $white;
-	padding: 20px 10px 0;
 	border-radius: $global-radius;
+	@include outer-container(100%);
+
+	#cta-form-post {
+		margin: 0;
+	}
 
 	.arrow-up {
 		position: absolute;
@@ -139,41 +143,21 @@ ul.nav-dropdown {
 		border-bottom: 15px solid $white;
 	}
 
-	form {
-		margin: 0;
-		display: block;
-		position: relative;
-		min-width: 100%;
-	}
+	.input-row {
+		@include row();
+		padding: 15px 15px 0;
+			
+		input {
+			@include span-columns(12 of 12);
 
-	input {
-		display: block;
-		margin-top: 5%;
-		width: 100%;
-
-		&:first-child {
-			margin-top: 0;
-		}
-
-		&.half-width-input {
-			width: 48%;
-			display: inline-block;
-			float: left;
-			margin-bottom: 5%;
-
-			&.first-half {
-				margin-right: 4%;
+			&.half-width-input {
+				@include span-columns(6 of 12);
 			}
 		}
 	}
 
 	.button-center-row {
-		margin: 5px auto 5px;
-		
-		.button {
-			width: 40%;
-		}
-		
+		@include row;
 	}
 }
 
@@ -186,5 +170,30 @@ ul.nav-dropdown {
 .disable-link {
 	pointer-events: none;
 }
+
+.loading-icon {
+	@include row;
+	display: none;
+	border: 1px solid red;
+}
+
+.respond-message-wrap {
+	display: none;
+	padding: 25px 15px 0;
+	@include row;
+	
+	p, a {
+		font-size: 13px;
+		text-align: center;
+
+		a {
+			color: $primary-color;
+			font-size: 13px;
+		}
+	}
+
+
+}
+
 
 

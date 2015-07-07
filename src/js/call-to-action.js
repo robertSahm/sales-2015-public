@@ -3,7 +3,7 @@
 	'use strict';
 
 	//////////////////////
-	// Nav dropdown 
+	// CTA dropdown 
 	//////////////////////
 	
 	$(function() {
@@ -51,6 +51,8 @@
 	 		var data = {}
 
 			e.preventDefault(); //prevent form from submitting
+
+
 	    	
 	    	$('#cta-form-post :input').each(function(i, e) { 
 	    		data[$(e).attr('id')] = $(e).val();
@@ -60,13 +62,13 @@
 
     		var emailRegex = /^[A-Z0-9._%+-]+@(?:[A-Z0-9-]+\.)+[A-Z]{2,4}$/i,
              emailCheck = emailRegex.test(data['cta-input-email']),
-             emailError = 'Enter a valid Email.',
+             emailError = 'Error: Invalid email address.',
              firstnameCheck = data['cta-input-first-name'].length > 0,
-             firstnameError = 'Enter a first name.',
+             firstnameError = 'Error: Please enter your first name.',
              lastnameCheck = data['cta-input-last-name'].length > 0,
-             lastnameError = 'Enter a last name.',
+             lastnameError = 'Error: Please enter your first name.',
              companyCheck = data['cta-input-company'].length > 0,
-             companyError = 'Enter a company.',
+             companyError = 'Error: Please enter your company.',
              errorCheckOverall = emailCheck && firstnameCheck && lastnameCheck && companyCheck,
              errors = [];
 
@@ -87,15 +89,20 @@
 		       	    console.log(companyError);
 		       	}
 		       	console.log("denied!");
+
+		       	// Show no-response error
+					$(function() {
+				  		$('.respond-message-wrap').show().append(
+				  			"<p>Sorry, your information could not be submitted.<br />Please contact <a href='mailto:info@lucera.com?Subject=Website%20no%20response%20error' target='_top'>info@lucera.com</a> for assistance.</p>"
+				  		);
+					});
 		      return;
 		    
 			} else {
-
-				console.log("sending...");
-
+				
 			   var request = $.ajax({
-			      // url:  'http://localhost:1437/api/salesRegistration',
-			      url:  'http://10.20.3.1:8400/api/salesRegistration',
+			      url:  'http://localhost:1437/api/salesRegistration',
+			      // url:  'http://10.20.3.1:8400/api/salesRegistration',
 			      type: 'POST',
 			      dataType: 'JSON',
 			      async: true,
@@ -103,13 +110,28 @@
 			   }).done(function(data) {
 
 			   	if (data.success) {
-					   console.log('success!');
+					   // Show success response
+						$(function() {
+					  		$('.respond-message-wrap').show().append(
+					  			"<p>Thank you!</p>"
+					  		);
+						});
+					   
 					} else {
 					   console.log('error:', data.message);
+					   $(function() {
+				  		$('.respond-message-wrap').show().append(
+				  			"<p>Sorry, there was a error receiving your information on our end. Please contact <a href='mailto:info@lucera.com?Subject=Website%20signup%20error' target='_top'>info@lucera.com</a> for help.</p>"
+				  			);
+						});
 					}
-			   
 			   }).fail(function(xhr, status, err) {
-			   	console.log('failed');
+			   	// Show no-response error
+					$(function() {
+				  		$('.respond-message-wrap').show().append(
+				  			"<p>Sorry, there was a error submitting your information on our end. Please contact <a href='mailto:info@lucera.com?Subject=Website%20error' target='_top'>info@lucera.com</a> for help.</p>"
+				  		);
+					});
 			   });
 			}
     	});
