@@ -3,7 +3,8 @@
 	'use strict';
 
 	$(function() {
-		var modal = $('.nav-desktop');
+		var modal = $('.nav-desktop'),
+			form = $('.cta-form');
 
 		$(window).scroll(function (e) {
     		var scroll = $(window).scrollTop();
@@ -22,12 +23,21 @@
 		});
 
 		$('.button-cta-nav').click( function() {
-			$('.cta-form').show();
+			form.show();
+			setTimeout(function() {
+				form.click(function(e) {
+					e.preventDefault();
+				});
+			}, 1);
 			modal.addClass('cover-all');
 			setTimeout(function() {
 				modal.click(function(e) {
 					e.preventDefault();
-					if (/cover-all/.test(modal.attr('class'))) {
+					var el = $(e.target),
+						elForm = el.closest('.cta-form'),
+						inForm = elForm.length > 0;
+
+					if (!inForm && /cover-all/.test(modal.attr('class'))) {
 						$('.cta-form').hide();
 						modal.removeClass('cover-all');
 						modal.off('click');
