@@ -78,7 +78,7 @@
 				companyCheck = data['cta-input-company'].length > 0,
 				errorCheckOverall = emailCheck && firstnameCheck && lastnameCheck && companyCheck,
 				errors = [],
-				responseArea = $('.respond-message-wrap'),
+				responseArea = $('.cta-respond-message-wrap'),
 				responseText = function(which, errorText, args) {
 					var processedErrorText = String.format(errorText, args);
 					responseArea.html(processedErrorText).show().addClass(which);
