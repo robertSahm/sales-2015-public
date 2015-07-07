@@ -2,7 +2,7 @@
 	position: fixed;
 	top: 0;
 	left: 0;
-	z-index: 2000;
+	z-index: 1000;
 	min-width: 100%;
 	min-height: 100%;
 	background-color: rgba(0,0,0,.5) !important;
@@ -12,10 +12,10 @@
 	@include span-columns(6);
 	@include shift(3);
 	position: absolute;
-	top: 25%;
-	height: 400px;
+	top: 15%;
+	// height: 400px;
 	background-color: $primary-color;
-	padding: 45px;
+	padding: 45px 45px 0;
 	text-align: center;
 	color: white;
 
