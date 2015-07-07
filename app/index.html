@@ -14,8 +14,22 @@
 
 	<body>
 		<div class="site-wrapper">
+
+			<!-- The handlebar template -->
+			<div id="nav">
+				<script id="results-template" type="text/x-handlebars-template">
+					<h2> Welcome: {{person.name}} {{person.last}} </h2>
+
+
+
+				</script>
+				<div id="results"></div>
+			</div>
+
+
+
 			<!-- Nav Desktop -->
-			<nav class="nav-desktop" role="navigation">
+<!-- 		<nav class="nav-desktop" role="navigation">
 				<div class="logo-wrapper-desktop">
 					<a href="/">
 						<img src="assets/img/logo-lucera-white.svg" alt="Logo">
@@ -58,10 +72,13 @@
 					<li>
 						<button class="button button-sign-in button-awesome">Sign In</button>
 					</li>
-				</ul><!-- End Nav Desktop -->
-			</nav>
+				</ul>
+			</nav> -->
+			<!-- End Nav Desktop -->
+
+
 			<!-- Nav Mobile -->
-			<nav class="nav nav-mobile" role="navigation">
+<!-- 			<nav class="nav nav-mobile" role="navigation">
 				<div class="logo-wrapper-mobile">
 					<a href="/">
 						<img src="assets/img/logo-lucera-white.svg" alt="Logo">
@@ -86,11 +103,12 @@
 							<li><a href="contact.html">Contact</a></li>
 						</ul>
 					</li>
-				</ul><!-- End Nav Mobile-->
-			</nav>
+				</ul>
+			</nav> -->
+			<!-- End Nav Mobile-->
 
 			
-<header class="main-header">
+<header class="main-header home-header">
 	<div class="header" role="banner">
 		<h1 class="header-text-big">The Future of Financial Computing</h1>
 		<h5 class="header-text-small">Lucera lets you focus on what matters: Growing your business</h5>
@@ -112,7 +130,7 @@
 	</div>
 </header>
 
-<main id="content" class="content" role="main">
+<main id="content home-content" class="content" role="main">
 
 	<div class="lead-row">
 		 <h5 class="lead-copy text-center">Lucera is a high performance Infrastructure as a Service provider for financial services. We provide on-demand high performance compute <span class="bold">(Lucera Compute)</span> and networking services <span class="bold">(Lucera Connect)</span> for latency sensitive and mission critical financial systems.</h5>
@@ -272,14 +290,22 @@
 
 
 <!-- - - - - - - - - - - Scripts - - - - - - - - - - - - -->
+
 <script src="assets/components/jquery/jquery.min.js"></script>
+
+<script src="assets/components/handlebars/handlebars.js"></script>
+
 <script src="assets/components/fitvids/jquery.fitvids.js"></script>
+
 <script src="assets/components/navbar/navbar.js"></script>
+
 <script src="assets/js/scripts.min.js"></script>
+
 <script type='text/javascript' id="__bs_script__">//<![CDATA[
     document.write("<script async src='http://HOST:3000/browser-sync/browser-sync-client.2.7.13.js'><\/script>".replace("HOST", location.hostname));
 //]]>
 </script>
+
 <script>
 	$(function(){
 		$('#nav-bar').slicknav({

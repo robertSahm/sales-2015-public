@@ -40,7 +40,7 @@ var paths = {
 
 gulp.task('scripts', function() {
   return gulp.src([
-		// combined in order: 
+		// combined in order:
 		'src/js/app.js',
 		'src/js/call-to-action.js'
 	])

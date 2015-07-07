@@ -2,21 +2,14 @@
 
 	'use strict';
 
+	//////////////////////
+	// Nav dropdown 
+	//////////////////////
+	
 	$(function() {
 		var modal = $('.nav-desktop'),
-			form = $('.cta-form');
+			 form = $('.cta-form');
 
-		$(window).scroll(function (e) {
-    		var scroll = $(window).scrollTop();
-		   
-		   if (scroll > 0) {
-		   	modal.addClass('scrolled')
-		   } else {
-		   	modal.removeClass('scrolled')
-		   };
-		});
-		
-		// Nav Dropdown 
 		$('li.nav-dropper').hover(function(e) {
 			$('ul.nav-dropdown', this).stop(true, false).slideToggle(200);
 			 e.preventDefault();
@@ -47,6 +40,11 @@
 		});
 	});
 
+
+	//////////////////////////
+	// Form data dump
+	//////////////////////////
+
 	$(function() {
 
     	$('#cta-submit').click(function(e) {
@@ -73,6 +71,20 @@
 	      });
     	});
 	});
+
+	//////////////////////////////////////////////
+	// Window Scroll Detection (if needed)
+	//////////////////////////////////////////////
+
+	// $(window).scroll(function (e) {
+ 	//   	var scroll = $(window).scrollTop();
+	   
+	//    if (scroll > 0) {
+	//    	modal.addClass('scrolled')
+	//    } else {
+	//    	modal.removeClass('scrolled')
+	//    };
+	// });
 
 })(jQuery, window, document);
 
