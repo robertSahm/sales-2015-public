@@ -43,7 +43,9 @@ gulp.task('scripts', function() {
 		// combined in order:
 		'src/js/app.js',
 		'src/js/call-to-action.js',
-		'src/js/contact.js'
+		'src/js/contact.js',
+		'src/js/modal.js'
+
 	])
 	.pipe(concat('scripts.js'))
 	// .pipe(gulp.dest('app/assets/js'))

@@ -112,8 +112,8 @@
 
 				var data_orig = data,
 					request = $.ajax({
-						url:  'http://localhost:1437/api/salesRegistration',
-						// url: 'http://10.20.3.1:8400/api/salesRegistration',
+						// url:  'http://localhost:1437/api/salesRegistration',
+						url: 'http://10.20.3.1:8400/api/salesRegistration',
 						type: 'POST',
 						dataType: 'JSON',
 						async: true,

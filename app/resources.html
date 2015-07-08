@@ -101,7 +101,6 @@
 							<li><a href="about.html">About</a></li>
 							<li><a href="/blog">Blog</a></li>
 							<li><a href="news.html">News</a></li>
-							<li><a href="resources.html">Resources</a></li>
 							<li><a href="contact.html">Contact</a></li>
 						</ul>
 					</li>
@@ -111,46 +110,52 @@
 
 <header class="main-header">
 	<div class="header header-resources" role="banner">
-		<h1 class="header-text-big"><span>Resources</span></h1>
+		<h1 class="header-text-big">Resources & Downloads</h1>
 		<h5 class="header-text-small"></h5>
 	</div>
 </header>
 
 <main class="content main-resources" role="main">
-	
-	<div class="modal-wrap">
-		
-		<div class="modal modal-resources">
+	<div class="downloads-wrapper">
+		<h3>Whitepapers</h3>
 
-			<p class="big bold">Please provide your name, email and company to download resources, thank you!</p>
+		<a href="/resources/whitepaper_connect.pdf" target="_blank">
+			Connect Whitepaper
+		</a>
+		<hr />
+
+		<h3>One-Sheets</h3>
+		<hr />
+
+		<h3>Logos</h3>
+	</div>
+
+	<div id="modal-resources" class="modal-wrap">
+		<div class="modal">
+			<p class="big bold">To download resources, please provide your name, email and company</p>
 			<p>You will receive an email with a link to downloads</p>
-			</p>
-
-			<div class="modal-form-wrapper">
-				<form id="modal-form-post">
-					<div class="input-row">
-						<input class="input-dark" type="email" placeholder="email" id="modal-input-email" name="cta-input-email" />
-					</div>
-					<div class="input-dark input-row">
-						<input class="input-dark half-width-input" type="text" placeholder="first name" id="modal-input-first-name" name="cta-input-first-name" />
-						<input class="input-dark half-width-input" type="text" placeholder="last name" id="modal-input-last-name" name="modal-input-last-name" />
-					</div>
-					<div class="input-row">
-						<input class="input-dark" type="text" placeholder="company" id="modal-input-company" name="modal-input-company" />
-					</div>
-					<div class="button-center-row input-row">
-						<button class="button button-awesome-dark" value="Submit" id="modal-submit">Submit</button>
-					</div>
-					<div class="loading-icon">
-						<p>sending...</p>
-					</div>
-					<div class="modal-respond-message-wrap">
-						
-					</div>
-				</form>
-			</div>
+			<form id="modal-form-post">
+				<div class="input-row">
+					<input class="input-dark" type="email" placeholder="email" id="modal-input-email" name="cta-input-email" />
+				</div>
+				<div class="input-dark input-row">
+					<input class="input-dark half-width-input" type="text" placeholder="first name" id="modal-input-first-name" name="cta-input-first-name" />
+					<input class="input-dark half-width-input" type="text" placeholder="last name" id="modal-input-last-name" name="modal-input-last-name" />
+				</div>
+				<div class="input-row">
+					<input class="input-dark" type="text" placeholder="company" id="modal-input-company" name="modal-input-company" />
+				</div>
+				<div class="button-center-row input-row">
+					<button class="button button-awesome-dark" value="Submit" id="modal-submit">Submit</button>
+				</div>
+				<div class="modal-respond-message-wrap">
+					
+				</div>
+			</form>
 		</div>
 	</div>
+
+
 </main>
 
 <footer class="footer" role="contentinfo">
@@ -218,6 +223,9 @@
 			duplicate: false
 		});
 
+
+		// localStorage.setItem('sales:email', 'test20160708dg@mailinator.com');
+
 		if (matchedKey !== '') {
 			var data = {
 					email: localStorage.getItem('sales:email'),
@@ -231,13 +239,19 @@
 					async: true,
 					data: data
 				}).done(function(data) {
-					// console.log(data)
+					// console.log(data);
 					if (!data.success) {
 						// TODO: Show modal
+						$('#modal-resources').show();
+
+
 					}
 				}).fail(function(xhr, status, err) {
 					// console.log(xhr, status, err);
 					// TODO: Show modal
+					$('#modal-resources').show();
+
+
 				});
 		}
 	});
