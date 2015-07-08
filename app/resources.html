@@ -15,6 +15,7 @@
 	<body>
 		<div class="site-wrapper">
 
+
 			<!-- Nav Desktop -->
 			<nav class="nav-desktop" role="navigation">
 				<div class="logo-wrapper-desktop">
@@ -194,38 +195,56 @@
 <script src="assets/js/scripts.min.js"></script>
 
 <script type='text/javascript' id="__bs_script__">//<![CDATA[
-    document.write("<script async src='http://HOST:3000/browser-sync/browser-sync-client.2.7.13.js'><\/script>".replace("HOST", location.hostname));
+	document.write("<script async src='http://HOST:3000/browser-sync/browser-sync-client.2.7.13.js'><\/script>".replace("HOST", location.hostname));
 //]]>
 </script>
 
 <script>
 	$(function(){
+		var pageUrl = window.location.search.substring(1),
+			urlVars = pageUrl.split('&'),
+			matchedKey = '';
+
+		for (var i = 0; i < urlVars.length; i++) {
+			var urlSplitArray = urlVars[i].split('=');
+			if (urlSplitArray[0] == 'key') {
+				matchedKey = urlSplitArray[1];
+			}
+		}
+
 		$('#nav-bar').slicknav({
 			label: '',
 			duration: 200,
 			duplicate: false
 		});
+
+		if (matchedKey !== '') {
+			var data = {
+					email: localStorage.getItem('sales:email'),
+					key: matchedKey
+				},
+				request = $.ajax({
+					// url:  'http://localhost:1437/api/salesKeyCheck',
+					url: 'http://10.20.3.1:8400/api/salesKeyCheck',
+					type: 'POST',
+					dataType: 'JSON',
+					async: true,
+					data: data
+				}).done(function(data) {
+					// console.log(data)
+					if (!data.success) {
+						// TODO: Show modal
+					}
+				}).fail(function(xhr, status, err) {
+					// console.log(xhr, status, err);
+					// TODO: Show modal
+				});
+		}
 	});
-</script>
-
-<script>
-
-$(function(){
-
-	// if (localStorage.getItem("ghost-blog:session") === null) {
-	// 	console.log('email === null');
-	// } else {
-	// 	console.log(sessionStorage.getItem("ghost-blog:session"));
-	// }
-
-
-});
-
 </script>
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - -->
 
 </body>
 </html>
-
 
