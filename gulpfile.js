@@ -19,7 +19,7 @@ npm install gulp gulp-util gulp-sass gulp-uglify gulp-rename gulp-minify-css gul
 */
 
 /* Needed gulp config */
-var gulp = require('gulp');  
+var gulp = require('gulp');
 var sass = require('gulp-sass');
 var autoprefixer = require('gulp-autoprefixer');
 var sourcemaps = require('gulp-sourcemaps');
@@ -35,86 +35,91 @@ var reload = browserSync.reload;
 
 /* Setup scss path */
 var paths = {
-	scss: 'src/scss/*.scss'
+	scss: 'src/scss/*.scss',
+	pdf: 'resources/*.pdf'
 };
 
 gulp.task('scripts', function() {
-  return gulp.src([
-		// combined in order:
-		'src/js/app.js',
-		'src/js/call-to-action.js',
-		'src/js/contact.js',
-		'src/js/modal.js'
+	return gulp.src([
+			// combined in order:
+			'src/js/app.js',
+			'src/js/call-to-action.js',
+			'src/js/contact.js',
+			'src/js/modal.js'
 
-	])
-	.pipe(concat('scripts.js'))
-	// .pipe(gulp.dest('app/assets/js'))
-	.pipe(rename({suffix: '.min'}))
-	.pipe(uglify())
-	.pipe(gulp.dest('app/assets/js'));
+		])
+		.pipe(concat('scripts.js'))
+		// .pipe(gulp.dest('app/assets/js'))
+		.pipe(rename({
+			suffix: '.min'
+		}))
+		.pipe(uglify())
+		.pipe(gulp.dest('app/assets/js'));
 });
 
+gulp.task('resources', function() {
+	return gulp.src('resources/*')
+		.pipe(gulp.dest('app/assets/resources'));
+});
+
+// gulp.task('copyfonts', function() {
+//    gulp.src('./bower_components/font-awesome/fonts/**/*.{ttf,woff,eof,svg}')
+//    .pipe(gulp.dest('./fonts'));
+// });
+
 /* Sass task */
-gulp.task('sass', function () {   
+gulp.task('sass', function() {
 	gulp.src('src/scss/style.scss')
-	.pipe(plumber())
-	.pipe(sass({
-		includePaths: ['src/scss'].concat(neat)
-	}))
-	.pipe(sass({sourcemap: true}))
-	.pipe(sourcemaps.init({loadMaps: true}))
-	.pipe(autoprefixer({
-		browsers: ['IE 8', 'IE 9', 'last 5 versions', 'Firefox 14', 'Opera 11.1']
-   }))
-   .pipe(sourcemaps.write())
-	.pipe(gulp.dest('app/assets/css'))
-	.pipe(rename({suffix: '.min'}))
-	.pipe(minifycss())
-	.pipe(gulp.dest('app/assets/css'))
-	.pipe(reload({stream:true}));
+		.pipe(plumber())
+		.pipe(sass({
+			includePaths: ['src/scss'].concat(neat)
+		}))
+		.pipe(sass({
+			sourcemap: true
+		}))
+		.pipe(sourcemaps.init({
+			loadMaps: true
+		}))
+		.pipe(autoprefixer({
+			browsers: ['IE 8', 'IE 9', 'last 5 versions', 'Firefox 14', 'Opera 11.1']
+		}))
+		.pipe(sourcemaps.write())
+		.pipe(gulp.dest('app/assets/css'))
+		.pipe(rename({
+			suffix: '.min'
+		}))
+		.pipe(minifycss())
+		.pipe(gulp.dest('app/assets/css'))
+		.pipe(reload({
+			stream: true
+		}));
 });
 
 gulp.task('browser-sync', function() {
-    browserSync.init(null, {
-        server: {
-            baseDir: "app"
-        }
-    });
+	browserSync.init(null, {
+		server: {
+			baseDir: "app"
+		},
+		routes: {
+			"/resources": "resources"
+		}
+	});
 });
 
-gulp.task('bs-reload', function () {
-    browserSync.reload();
+gulp.task('bs-reload', function() {
+	browserSync.reload();
 });
 
-gulp.task('default', ['sass', 'browser-sync'], function () {
+gulp.task('default', ['sass', 'resources', 'browser-sync'], function() {
 	/* Watch scss, run the sass task on change. */
-	gulp.watch(['src/scss/*.scss', 'src/scss/**/*.scss'], ['sass'])
+	gulp.watch(['src/scss/*.scss', 'src/scss/**/*.scss'], ['sass']);
+
+	/* Watch resources, run the resources task on change. */
+	gulp.watch(['resources/*.pdf'], ['resources']);
 
 	/* Watch all src/js/*.js files, run the scripts task on change. */
-	gulp.watch(['src/js/*.js'], ['scripts'])
+	gulp.watch(['src/js/*.js'], ['scripts']);
 
 	/* Watch .html files, run the bs-reload task on change. */
 	gulp.watch(['app/*.html'], ['bs-reload']);
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
