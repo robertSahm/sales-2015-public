@@ -110,44 +110,46 @@
 
 			} else {
 
-				var request = $.ajax({
-					// url:  'http://localhost:1437/api/salesRegistration',
-					url: 'http://10.20.3.1:8400/api/salesRegistration',
-					type: 'POST',
-					dataType: 'JSON',
-					async: true,
-					data: data
-				}).done(function(data) {
+				var data_orig = data,
+					request = $.ajax({
+						url:  'http://localhost:1437/api/salesRegistration',
+						// url: 'http://10.20.3.1:8400/api/salesRegistration',
+						type: 'POST',
+						dataType: 'JSON',
+						async: true,
+						data: data
+					}).done(function(data) {
 
-					if (data.success) {
-						// Show success response
-						responseText('success', userDisplayText.success);
-					} else {
-						console.log('error:', data.message);
-						responseText('error', userDisplayText.serverError, [
-							data.message
-						]);
-					}
-				}).fail(function(xhr, status, err) {
-					// console.log(xhr, status, err);
-					// Show no-response error
-					var data = ('responseJSON' in xhr) ? xhr.responseJSON : {
-							message: (err ? (err + '.') : '') + ' Please try again later.'
-						},
-						oneError = data.message.length === 1;
-					if (data && ('success' in data) && !data.success) {
-						console.log('error:', data.message);
-						responseText('error', userDisplayText.contentError, [
-							oneError ? 'this' : 'these',
-							oneError ? '' : 's',
-							'<br> *' + data.message.join('<br> *')
-						]);
-					} else {
-						responseText('error', userDisplayText.ajaxError, [
-							data.message
-						]);
-					}
-				});
+						if (data.success) {
+							// Show success response
+							localStorage.setItem('sales:email', data_orig['cta-input-email']);
+							responseText('success', userDisplayText.success);
+						} else {
+							console.log('error:', data.message);
+							responseText('error', userDisplayText.serverError, [
+								data.message
+							]);
+						}
+					}).fail(function(xhr, status, err) {
+						// console.log(xhr, status, err);
+						// Show no-response error
+						var data = ('responseJSON' in xhr) ? xhr.responseJSON : {
+								message: (err ? (err + '.') : '') + ' Please try again later.'
+							},
+							oneError = data.message.length === 1;
+						if (data && ('success' in data) && !data.success) {
+							console.log('error:', data.message);
+							responseText('error', userDisplayText.contentError, [
+								oneError ? 'this' : 'these',
+								oneError ? '' : 's',
+								'<br> *' + data.message.join('<br> *')
+							]);
+						} else {
+							responseText('error', userDisplayText.ajaxError, [
+								data.message
+							]);
+						}
+					});
 			}
 		});
 	});
