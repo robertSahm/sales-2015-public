@@ -61,14 +61,14 @@
 
 			var userDisplayText = {
 					success: "<p>Thank you!<br><br>Click the link we've emailed you to access our resources page!</p>",
-					generalHelp: " Please try again later or contact <a href='mailto:info@lucera.com?Subject=Website%20signup%20error' target='_top'>info@lucera.com</a> for help.</p>",
+					generalHelp: "<br>Please try again later or contact <a href='mailto:info@lucera.com?Subject=Website%20signup%20error' target='_top'>info@lucera.com</a> for help.</p>",
 					contentError: '<p>Oops! Please fix {0} problem{1}: {2}</p>',
 					contentErrorEmail: 'Invalid email address.',
 					contentErrorFName: 'Please enter your first name.',
 					contentErrorLName: 'Please enter your first name.',
 					contentErrorCompany: 'Please enter your company.',
-					serverError: '<p>Sorry, there was an error receiving your information on our end. ',
-					ajaxError: '<p>Sorry, there was an error submitting your information on our end. '
+					serverError: '<p>Sorry, there was an error receiving your information on our end. {0}</p>',
+					ajaxError: '<p>Sorry, there was an error submitting your information. {0}</p>'
 				},
 				emailRegex = /^[A-Z0-9._%+-]+@(?:[A-Z0-9-]+\.)+[A-Z]{2,4}$/i,
 				emailCheck = emailRegex.test(data['cta-input-email']),
@@ -102,7 +102,7 @@
 				// Show no-response error
 				var oneError = (errors.length === 1);
 				console.log('denied!', errors);
-				responseText('success', userDisplayText.contentError, [
+				responseText('error', userDisplayText.contentError, [
 					oneError ? 'this' : 'these',
 					oneError ? '' : 's',
 					'<br> *' + errors.join('<br> *')
@@ -121,7 +121,7 @@
 
 					if (data.success) {
 						// Show success response
-						responseText('error', userDisplayText.success);
+						responseText('success', userDisplayText.success);
 					} else {
 						console.log('error:', data.message);
 						responseText('error', userDisplayText.serverError, [
@@ -129,8 +129,24 @@
 						]);
 					}
 				}).fail(function(xhr, status, err) {
+					// console.log(xhr, status, err);
 					// Show no-response error
-					responseText('error', userDisplayText.ajaxError + userDisplayText.generalHelp);
+					var data = ('responseJSON' in xhr) ? xhr.responseJSON : {
+							message: (err ? (err + '.') : '') + ' Please try again later.'
+						},
+						oneError = data.message.length === 1;
+					if (data && ('success' in data) && !data.success) {
+						console.log('error:', data.message);
+						responseText('error', userDisplayText.contentError, [
+							oneError ? 'this' : 'these',
+							oneError ? '' : 's',
+							'<br> *' + data.message.join('<br> *')
+						]);
+					} else {
+						responseText('error', userDisplayText.ajaxError, [
+							data.message
+						]);
+					}
 				});
 			}
 		});
