@@ -36,7 +36,7 @@
 			<ul class="nav-dropdown">
 				<li><a href="about.html">About</a></li>
 				<li><a href="/blog">Blog</a></li>
-				<li><a href="news.html">News</a></li>
+				<li><a href="news.html">News & Press</a></li>
 				<li><a href="resources.html">Resources</a></li>
 				<li><a href="contact.html">Contact</a></li>
 			</ul>
@@ -45,22 +45,39 @@
 			<button class="button-cta-nav">Sign Up</button>
 			<div class="cta-form">
 				<div class="arrow-up"></div>
-				<form>
-					<input class="" type="email" placeholder="email" id="cta-input-emial" />
-					<input class="half-width-input first-half" type="text" placeholder="first name" id="cta-input-name" />
-					<input class="half-width-input" type="text" placeholder="last name" id="cta-input-name" />
-					<input class="" type="text" placeholder="company" id="cta-input-company" />
-					<div class="button-center-row row">
-						<input class="button button-awesome" type="submit" value="Submit" />
+				<form id="cta-form-post">
+					<div class="input-row">
+						<input type="email" placeholder="email" id="cta-input-email" name="cta-input-email" />
 					</div>
+					<div class="input-row">
+						<input class="half-width-input" type="text" placeholder="first name" id="cta-input-first-name" name="cta-input-first-name" />
+						<input class="half-width-input" type="text" placeholder="last name" id="cta-input-last-name" name="cta-input-last-name" />
+					</div>
+					<div class="input-row">
+						<input type="text" placeholder="company" id="cta-input-company" name="cta-input-company" />
+					</div>
+					<div class="button-center-row input-row">
+						<button class="button button-awesome" value="Submit" id="cta-submit">Submit</button>
+					</div>
+					<div class="loading-icon">
+						<p>sending...</p>
+					</div>
+
+					<div class="cta-respond-message-wrap">
+						
+					</div>
+
 				</form>
 			</div>
 		</li>
 		<li>
-			<button class="button button-sign-in button-awesome">Sign In</button>
+			<button onclick="window.location.href='http://portal.lucera.com'" class="button button-sign-in button-awesome" target="_blank">Sign In</button>
 		</li>
-	</ul><!-- End Nav Desktop -->
+	</ul>
 </nav>
+<!-- End Nav Desktop -->
+
+
 <!-- Nav Mobile -->
 <nav class="nav nav-mobile" role="navigation">
 	<div class="logo-wrapper-mobile">
@@ -83,13 +100,12 @@
 				<li><a href="about.html">About</a></li>
 				<li><a href="/blog">Blog</a></li>
 				<li><a href="news.html">News</a></li>
-				<li><a href="resources.html">Resources</a></li>
 				<li><a href="contact.html">Contact</a></li>
 			</ul>
 		</li>
-	</ul><!-- End Nav Mobile-->
+	</ul>
 </nav>
-
+<!-- End Nav Mobile-->
 
 <header class="main-header">
 	<div class="header connect-header" role="banner">
@@ -119,7 +135,7 @@
 
 	<div class="connect-challenge-solution">
 		<div class="left">
-			<h4>Today's network challenges</h4>
+			<h4>Today's network<br />challenges</h4>
 			<p>Predicting bandwidth usage</p>
 			<p>Provisioning time frames</p>
 			<p>Vendor lock-in</p>
@@ -127,7 +143,7 @@
 		</div>
 
 		<div class="right">
-			<h4>Lucera connect solutions</h4>
+			<h4>Lucera connect<br />solutions</h4>
 			<p>No bandwith-based restrictions or fees</p>
 			<p>Add destinations in real time</p>
 			<p>Monthly pay as you go</p>

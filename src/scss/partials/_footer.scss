@@ -1,11 +1,20 @@
 .footer {
 	background: $secondary-color;
-	padding-top: 4%;
+	padding-top: 6%;
 	padding-bottom: 40px;
+
+	@include media($tablet-down) {
+		padding-top: 12%;
+	}
 
 	img.logo-footer {
 		display: block;
 		margin: 0 auto;
+		// padding-bottom: 10%;
+
+		@include media($tablet-down) {
+			padding-bottom: 4%;
+		}
 	}
 
 	ul.nav-footer {
@@ -17,6 +26,11 @@
 		li {
 			display: inline-block;
 			margin: 0 12px;
+
+			@include media($tablet-down) {
+				padding-bottom: 5%;
+			}
+
 
 			a {
 				color: $white;

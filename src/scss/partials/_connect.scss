@@ -37,7 +37,7 @@
 .connect-works {
 	text-align: center;
 	margin: 26% auto 0;
-	padding: 4% 20%;
+	padding: 4%;
 	background-color: $white;
 	@include outer-container(100%);
 
@@ -53,11 +53,24 @@
 
 	h5 {
 		color: $primary-color;
+		@include span-columns(8);
+		@include shift(2);
 
+		@include media($tablet-down) {
+			@include span-columns(12);
+			@include shift(0);
+		}
 	}
 
 	p {
 		color: $secondary-color;
+		@include span-columns(6);
+		@include shift(3);
+
+		@include media($tablet-down) {
+			@include span-columns(12);
+			@include shift(0);
+		}
 	}
 }
 
