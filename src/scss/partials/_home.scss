@@ -30,7 +30,7 @@
 	margin-top: 3%;
 	width: 100%;
 
-	@media (#{$bp-smaller-than-tablet}) {
+	@include media($tablet-down) {
 		display: none;
 	}
 
@@ -57,7 +57,17 @@
 	position: absolute;
 	padding: 2% 10%;
 
-	@media (#{$bp-smaller-than-tablet}) {
+
+	img.home-gif-mobile {
+		width: 75.2%;
+		position: relative;
+		padding: 0%;
+		margin: -55.5% 12.4%;
+		left: 0;
+		// border: 1px solid red;
+	}
+
+	@include media($tablet-down) {
 		display: block;
 	}
 }
@@ -68,24 +78,26 @@
 	padding: 4% 0 2%;
 	@include outer-container(80%);
 
-	@include media(max-width 750px) {
+	@include media($tablet-down) {
 		margin-top: 40%;
 	}
 
 	.lead-copy {
-		@include media(min-width 1100px) {
+		@include media($desktop-up) {
 			font-size: 200%;
 			@include span-columns(10);
 			@include shift(1);
 		}
 		
-		@include media(max-width 960px) {
+		@include media($laptop-down) {
 			@include span-columns(12);
 			@include shift(0);
 		}
 
-		@include media(max-width 480px) {
+		@include media($phone-large-down) {
 			text-align: left;
+			font-size: 120%;
+			padding: 4% 0 2%;
 		}
 	}
 }
@@ -106,7 +118,7 @@
 		width: 20%;
 		margin: 0;
 
-		@media (#{$bp-smaller-than-tablet}) {
+		@include media($tablet-down) {
 			display: block;
 			width: 50%;
 			padding: 0;
@@ -118,7 +130,7 @@
 			width: auto;
 			height: 80px;
 
-			@media (#{$bp-smaller-than-tablet}) {
+			@include media($tablet-down) {
 				padding-top: 0;
 			}
 		}
@@ -129,7 +141,7 @@
 		}
 
 		&:last-child {
-			@media (#{$bp-smaller-than-tablet}) {
+			@include media($tablet-down) {
 				margin: 0 auto;
 				padding-top: 10px;
 				clear: both;
@@ -170,20 +182,23 @@
 	@include outer-container;
 
 	.one-half {
+		@include span-columns(6);
 		
-		@include media(min-width 751px) {
+		@include media($laptop-down) {
 			margin-right: 0 !important;
 			@include span-columns(6);
 		}
 
-		@include media(max-width 750px) {
+		@include media($tablet-down) {
 			@include span-columns(12);
 		}
 	}
 
 	.quote-attribution {
+		padding-right: 20px;
 		text-align: right;
 		font-size: 17px;
+		font-weight: 600;
 	}
 }
 
@@ -229,7 +244,7 @@
 
 .connect-row, .compute-row {
 	margin: 0;
-	padding: 6% 7% 4%;
+	padding: 6% 7% 2%;
 	background-color: #01A9F4;
 	position: relative;
 	text-align: center;
@@ -263,7 +278,6 @@
 			
 		.connect-stats {
 			@include span-columns(4);
-			padding-top: 2%;
 
 			h3 {
 				margin: 0;
@@ -347,22 +361,24 @@
 	.featured {
 		@include span-columns(6);
 
-		@include media(max-width 960px) {
+		@include media($tablet-down) {
 			@include span-columns(12);
 		}
 
-
 		h2 {
-			text-align: center;
+			text-align: left;
+			padding: 0 9%;
 		}
 
 		.media-item {
-			padding: 9%;
+			padding: 0 9%;
 
 			.video-container {
 			    position: relative;
 			    padding-bottom: 56.25%;
-			    padding-top: 30px; height: 0; overflow: hidden;
+			    padding-top: 30px; 
+			    height: 0; 
+			    overflow: hidden;
 			}
 			 
 			.video-container iframe,
@@ -380,21 +396,50 @@
 			}
 		}
 	}
-
-	.news {
-		@include span-columns(6);
-		@include omega();
-
-		@include media(max-width 960px) {
-			@include span-columns(12);
-		}
-
-
-		h2 {text-align: center;}
-		
-	}
 }
 
+.news-home {
+	@include span-columns(6);
+	@include omega();
+	padding: 0 4% 0 0;
+
+	hr {
+		// padding: 0;
+		margin: 20px 0;
+	}
+
+	@include media($tablet-down) {
+		@include span-columns(12);
+	}
+
+	.news-home-header {
+		padding-left: 2%;
+	}
+
+	.news-item-wrapper {
+		margin-bottom: 4%;
+
+		.news-item {
+			// border-left: 5px solid $primary-color;
+			padding-left: 2%;
+
+			.news-item-home-header {
+				margin: 0;
+				padding: 0;
+				font-weight: 400;
+			}
+
+			p {
+				margin-bottom: 0;
+				color: $primary-color;
+
+				a {
+					font-size: 90%;
+				}
+			}
+		}
+	}
+}
 
 
 
