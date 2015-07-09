@@ -23,7 +23,7 @@
 					</a>
 				</div>
 				<ul class="nav-ul-desktop">
-					<li><a href="#">Home</a></li>
+					<li><a href="/">Home</a></li>
 					<li class="nav-dropper">
 						<a class="disable-link" href="#">Products</a>
 						<ul class="nav-dropdown">
@@ -36,7 +36,7 @@
 						<ul class="nav-dropdown">
 							<li><a href="about.html">About</a></li>
 							<li><a href="/blog">Blog</a></li>
-							<li><a href="news.html">News</a></li>
+							<li><a href="news.html">News & Press</a></li>
 							<li><a href="resources.html">Resources</a></li>
 							<li><a href="contact.html">Contact</a></li>
 						</ul>
@@ -71,7 +71,7 @@
 						</div>
 					</li>
 					<li>
-						<button class="button button-sign-in button-awesome">Sign In</button>
+						<button onclick="window.location.href='http://portal.lucera.com'" class="button button-sign-in button-awesome" target="_blank">Sign In</button>
 					</li>
 				</ul>
 			</nav>
@@ -120,12 +120,13 @@
 				</div>
 				<div class="one-half column">
 					<img class="column macbook" src="assets/img/macbook_frame.png" alt="Laptop-App-	Display" />
-					<img class="home-gif column" class="column" src="assets/img/netFull.gif" alt="Laptop-	App-Display" />
+					<img class="home-gif column" class="column" src="assets/img/cpuFull.gif" alt="Laptop-	App-Display" />
 					<p>Lucera Compute: High Performance Infrastructure when you need it</p>
 			</div>
 		</div>
 		<div class="header-macbook-mobile row">
 			<img class="column" src="assets/img/macbook_frame.png" alt="Laptop-App-Display" />
+			<img class="home-gif-mobile column" class="column" src="assets/img/net1.gif" alt="Laptop-	App-Display" />
 		</div>
 	</div>
 </header>
@@ -209,9 +210,9 @@
 			<div class="connect-stats"><h3>75-90%</h3><p>Reduction in networking cost</p></div>
 			<div class="connect-stats"><h3>8-12%</h3><p>Positive impact on bottom line</p></div>
 		</div>
-		<hr />
+		<!-- <hr /> -->
 		<div class="button-center-row">
-			<button onclick="location.href='/connect'" class="button-awesome-inverse">Learn more about Lucera Connect</button>
+			<button onclick="location.href='connect.html'" class="button-awesome-inverse">Learn more about Lucera Connect</button>
 		</div>
 	</div>
 
@@ -238,9 +239,8 @@
 			<div class="connect-stats"><h3>50-75%</h3><p>Reduction in cost per CPU</p></div>
 			<div class="connect-stats"><h3>7-30%</h3><p>Positive impact to bottom line</p></div>
 		</div>
-		<hr />
 		<div class="button-center-row">
-			<button onclick="location.href='/compute'" class="button-awesome-inverse">Learn more about Lucera Compute</button>
+			<button onclick="location.href='compute.html'" class="button-awesome-inverse">Learn more about Lucera Compute</button>
 		</div>
 	</div>
 	<div class="media-news-row">
@@ -248,14 +248,98 @@
 			<h2>Featured media</h2>
 			<div class="media-item">
 				<div class="video-container">
-					 <!-- <iframe width="" height="" src="https://www.youtube.com/embed/MTp-vgJhg_c?rel=0" frameborder="0" allowfullscreen></iframe> -->
+					 <iframe width="" height="" src="https://www.youtube.com/embed/MTp-vgJhg_c?rel=0" frameborder="0" allowfullscreen></iframe>
 				</div>
 				<p class="description">Lucera CEO Jacob Loveless and TABB Group partner Alex Tabb discuss the need for infrastructure that will allow firms to experiment as they expand into new markets and products, the minimum infrastructure standards required by various market participants to explore new opportunities, and why on-demand infrastructure's time finally has come.</p>
 			</div>
 		</div>
-		<div class="news">
-			<h2>News</h2>
-		
+
+
+<!--
+http://www.fx-mm.com/35885/fx-mm-magazine/past-issues/julyaugust-2014/one-last-look-at-last-look-a-strategy-for-the-changing-fx-market/
+
+http://www.fxweek.com/fx-week/opinion/2357816/one-last-look-at-last-look
+
+http://www.wallstreetletter.com/news/a_strategy_for_the_changing_fx_market
+
+http://tabbforum.com/microsites/quantforum/articles/if-you-can't-measure-it-you-can't-manage-it-measuring-errors-capacity-and-performance-in-financial-application-stacks"
+
+
+http://blog.ftfnews.com/2014/08/13/financial-trading-infrastructure-the-era-of-cloud-2-0/
+
+
+-->
+
+		<div class="news-home">
+			<h2 class="news-home-header">News & Press</h2>
+			
+			<div class="news-item-wrapper">
+				<hr />
+				<div class="news-item">
+					<h6 class="news-item-home-header">
+						One Last Look at ‘Last Look’: A Strategy For the Changing FX Market
+					</h6>
+					<p class="p-large bold">
+						<a href="http://www.fx-mm.com/35885/fx-mm-magazine/past-issues/julyaugust-2014/one-last-look-at-last-look-a-strategy-for-the-changing-fx-market/" target="_blank">
+							FX-MM Magazine
+						</a>
+					</p>
+				</div>
+			</div>
+			<hr />
+			<div class="news-item-wrapper">
+				<div class="news-item">
+					<h6 class="news-item-home-header">
+						One Last Look at Last Look<br />
+					</h6>
+					<p class="p-large bold">
+						<a href="http://www.fxweek.com/fx-week/opinion/2357816/one-last-look-at-last-look" target="_blank">
+							FX Week
+						</a>
+					</p>
+				</div>
+			</div>
+			<hr />
+			<div class="news-item-wrapper">
+				<div class="news-item">
+					<h6 class="news-item-home-header">
+						A strategy for the changing FX market<br />
+					</h6>
+					<p class="p-large bold">
+						<a href="http://www.wallstreetletter.com/news/a_strategy_for_the_changing_fx_market" target="_blank">
+							Wall Street Letter
+						</a>
+					</p>
+				</div>
+			</div>
+			<hr />
+			<div class="news-item-wrapper">
+				<div class="news-item">
+					<h6 class="news-item-home-header">
+						If You Can't Measure It, You Can't Manage It<br />
+					</h6>
+					<p class="p-large bold">
+						<a href="http://tabbforum.com/microsites/quantforum/articles/if-you-can't-measure-it-you-can't-manage-it-measuring-errors-capacity-and-performance-in-financial-application-stacks" target="_blank">
+							TABB Forum
+						</a>
+					</p>
+				</div>
+			</div>
+			<hr />
+			<div class="news-item-wrapper">
+				<div class="news-item">
+					<h6 class="news-item-home-header">
+						Financial Trading Infrastructure: The Era of Cloud 2.0<br />
+					</h6>
+					<p class="p-large bold">
+						<a href="http://blog.ftfnews.com/2014/08/13/financial-trading-infrastructure-the-era-of-cloud-2-0/" target="_blank">
+							Financial Technologies Forum
+						</a>
+					</p>
+				</div>
+			</div>
+			<hr />
+
 		</div>
 	</div>
 </main>
@@ -275,9 +359,9 @@
 		</nav>
 		<div class="row">
 			<ul class="footer-social">
-				<li><a href=""><img src="assets/img/logo-twitter.png"></a></li>
-				<li><a href=""><img src="assets/img/logo-linkedin.png"></a></li>
-				<li><a href=""><img src="assets/img/logo-github.png"></a></li>
+				<li><a href="https://twitter.com/lucerahq"><img src="assets/img/logo-twitter.png"></a></li>
+				<li><a href="https://www.linkedin.com/company/lucera-hq"><img src="assets/img/logo-linkedin.png"></a></li>
+				<li><a href="https://github.com/luceracloud"><img src="assets/img/logo-github.png"></a></li>
 			</ul>
 		</div>
 		<div class="row">

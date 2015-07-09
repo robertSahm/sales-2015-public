@@ -5,10 +5,6 @@
 	width: 100%;
 	padding: 0 15%;
 
-	// @media (#{$bp-smaller-than-tablet}) {
-	// 	display: none;
-	// }
-
 	img.macbook {
 		padding: 10% 9% 2% 9%;
 	}
@@ -41,7 +37,7 @@
 .connect-works {
 	text-align: center;
 	margin: 26% auto 0;
-	padding: 4% 20%;
+	padding: 4%;
 	background-color: $white;
 	@include outer-container(100%);
 
@@ -57,39 +53,58 @@
 
 	h5 {
 		color: $primary-color;
+		@include span-columns(8);
+		@include shift(2);
 
+		@include media($tablet-down) {
+			@include span-columns(12);
+			@include shift(0);
+		}
 	}
 
 	p {
 		color: $secondary-color;
+		@include span-columns(6);
+		@include shift(3);
+
+		@include media($tablet-down) {
+			@include span-columns(12);
+			@include shift(0);
+		}
 	}
 }
 
 
 .connect-challenge-solution {
 	@include outer-container;
-	padding: 6% 4%;
-	background-color: $primary-color;
 	color: $white;
 	
 	p {color: $white;}
 
+	.left, .right {
+		padding: 4%;
+	}
+
 	.left {
-		@include span-columns(6);
+		@include span-columns(6, block-collapse);
 		text-align: right;
+		background-color: $secondary-color;
 
 		@include media(max-width $tablet) {
 			@include span-columns(12);
-			text-align: left;
+			text-align: center;
 		}
 	}
 
 	.right {
 		@include span-columns(6);
 		@include omega();
+		background-color: $primary-color;
+		// margin: 0;
 
 		@include media(max-width $tablet) {
 			@include span-columns(12);
+			text-align: center;
 		}
 		
 		p, h4 {
@@ -105,28 +120,12 @@
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .timeline-wrapper {
 	@include outer-container(100%);
-	padding: 4%;
+	padding: 4% 4% 0;
 	position: relative;
 	display: block;
-	height: 720px;
+	height: 620px;
 
 	@include media($tablet-down) {
 		display: none;
@@ -288,7 +287,7 @@
 	position: relative;
 	top: 0;
 	left: 0;
-	padding: 4%;
+	padding: 10% 4%;
 
 	@include media($tablet-up) {
 		display: none;
@@ -296,12 +295,12 @@
 
 	.header-timeline {
 		text-align: center;
-		padding-bottom: 0%;
+		padding-bottom: 4%;
 	}
 
 	.label-days {
 		position: relative;
-		top: 0px;
+		top: -12px;
 		margin: 0;
 		padding: 0;
 	}
@@ -412,48 +411,33 @@
 	}
 }
 
-.connect-value-row {
+.graphic-right-connect {
+	@include outer-container(100%);
+	// display: table;
+	// position: static;
 	padding: 4%;
-	@include outer-container;
-	background-color: $primary-color;
-	color: $white;
-	text-align: center;
+	background: url(/assets/img/triangles.png) right top no-repeat;
+	background-size: contain;
 
-	// .connect-value-left {
-	// 	@include span-columns(6);
-	// }
+	@include media($tablet-down) {
+		background: $primary-color;
+	}
 
-	// .connect-value-right {
-	// 	@include span-columns(6);
-	// 	text-align: right;
-	// }
-}
+	.text-wrap-left {
+		@include span-columns(6);
+		color: $secondary-color;
 
+		@include media($tablet-down) {
+			@include span-columns(12);
+			text-align: center;
+			color: $white;
+		}
 
-
-.bg-triangles {
-	@include outer-container;
-
-	img {
-		width: auto !important;
-		max-height: 500px;
-		position: relative;
-		top: 0;
-		right: 0;
-		float: right;
+		h6 {
+			margin: 0 0 4%;
+		}
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 

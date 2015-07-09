@@ -116,10 +116,10 @@ p {
 }
 
 a {
-	color: $link-color;
+	color: $primary-color;
 
 	&:hover {
-		color: darken($link-color, 15%);
+		color: darken($primary-color, 15%);
 	}
 }
 
