@@ -119,7 +119,7 @@
 	<div class="downloads-wrapper">
 		<h3>Whitepapers</h3>
 
-		<a href="/resources/whitepaper_connect.pdf" target="_blank">
+		<a href="?file=pdf1" target="_blank" class="auto-convert">
 			Connect Whitepaper
 		</a>
 		<hr />
@@ -206,16 +206,23 @@
 
 <script>
 	$(function(){
-		var pageUrl = window.location.search.substring(1),
-			urlVars = pageUrl.split('&'),
-			matchedKey = '';
+		var getUrlParam = function(param) {
+			var pageUrl = window.location.search.substring(1),
+				urlVars = pageUrl.split('&');
 
-		for (var i = 0; i < urlVars.length; i++) {
-			var urlSplitArray = urlVars[i].split('=');
-			if (urlSplitArray[0] == 'key') {
-				matchedKey = urlSplitArray[1];
+			for (var i = 0; i < urlVars.length; i++) {
+				var urlSplitArray = urlVars[i].split('=');
+				if (urlSplitArray[0] == param) {
+					return urlSplitArray[1];
+				}
 			}
-		}
+			return '';
+		};
+
+		var matchedKey = getUrlParam('key'),
+			useKey = (matchedKey !== ''),
+			matchedFile = getUrlParam('file'),
+			useFile = (matchedFile !== '');
 
 		$('#nav-bar').slicknav({
 			label: '',
@@ -223,36 +230,59 @@
 			duplicate: false
 		});
 
-
 		// localStorage.setItem('sales:email', 'test20160708dg@mailinator.com');
 
-		if (matchedKey !== '') {
+		if (useKey) {
+
 			var data = {
-					email: localStorage.getItem('sales:email'),
-					key: matchedKey
-				},
-				request = $.ajax({
-					// url:  'http://localhost:1437/api/salesKeyCheck',
-					url: 'http://10.20.3.1:8400/api/salesKeyCheck',
-					type: 'POST',
-					dataType: 'JSON',
-					async: true,
-					data: data
-				}).done(function(data) {
-					// console.log(data);
-					if (!data.success) {
-						// TODO: Show modal
-						$('#modal-resources').show();
+				email: localStorage.getItem('sales:email'),
+				key: matchedKey
+			};
 
+			if (useFile) {
+				data.file = matchedFile;
+			}
 
-					}
-				}).fail(function(xhr, status, err) {
-					// console.log(xhr, status, err);
-					// TODO: Show modal
+			var request = $.ajax({
+				url:  'http://localhost:1437/api/salesKeyCheck',
+				// url: 'http://10.20.3.1:8400/api/salesKeyCheck',
+				type: 'POST',
+				dataType: 'JSON',
+				async: true,
+				data: data
+			}).done(function(data) {
+				// console.log(data);
+				if (!data.success) {
 					$('#modal-resources').show();
-
-
-				});
+				} else {
+					if (!useFile) {
+						var regex = /^\?(file=[^=&]+)$/;
+						$('.auto-convert').each(function(i, e) {
+							var el = $(e),
+								url = el.attr('href'),
+								matches = regex.exec(url);
+							if (matches) {
+								var fileCode = matches[1],
+									newUrl = '?key=' + matchedKey + '&' + fileCode;
+								el.attr('href', newUrl);
+							}
+						});
+					} else {
+						if ('file' in data) {
+							var realUrlPath = '/resources/' + data.file;
+							console.log(realUrlPath);
+							$('body').html('<object data="' + realUrlPath + '" type="application/pdf"><embed src="' + realUrlPath + '" type="application/pdf" /></object>');
+						} else {
+							$('#modal-resources').show();
+						}
+					}
+				}
+			}).fail(function(xhr, status, err) {
+				// console.log(xhr, status, err);
+				$('#modal-resources').show();
+			});
+		} else {
+			$('#modal-resources').show();
 		}
 	});
 </script>
