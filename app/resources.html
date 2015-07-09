@@ -269,9 +269,11 @@
 						});
 					} else {
 						if ('file' in data) {
-							var realUrlPath = '/resources/' + data.file;
-							console.log(realUrlPath);
-							$('body').html('<object data="' + realUrlPath + '" type="application/pdf"><embed src="' + realUrlPath + '" type="application/pdf" /></object>');
+							var realUrlPath = data.file,
+								container = $('.site-wrapper'),
+								winHeight = $( window ).height() + 'px';
+							// console.log(realUrlPath, winHeight);
+							container.html('<object data="' + realUrlPath + '?#view=fitH" type="application/pdf" width="100%" height="100%"><param name="view" value="Fit" /></object>').css({width:'100%',height:winHeight});
 						} else {
 							$('#modal-resources').show();
 						}

@@ -100,9 +100,7 @@ gulp.task('browser-sync', function() {
 		server: {
 			baseDir: "app"
 		},
-		routes: {
-			"/resources": "resources"
-		}
+		middleware: require('serve-static')('resources')
 	});
 });
 
